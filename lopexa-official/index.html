@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Hero Section with Container</title>
+  <style>
+    /* Gradient border fix using a pseudo-element */
+    .gradient-border {
+      position: relative;
+      z-index: 0;
+    }
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      border-radius: 0.5rem; /* Match the parent border radius */
+      background: linear-gradient(to right, #34d399, #3b82f6); /* Gradient colors */
+      padding: 2px; /* Thickness of the border */
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+    }
+  </style>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-black text-white mx-auto container">
@@ -24,7 +46,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="container mx-auto px-6 lg:px-20 py-12 lg:py-20">
+  <section class="container mx-auto px-6  py-12 lg:py-20">
     <div class="flex flex-col-reverse lg:flex-row justify-between items-center">
       <!-- Left Content -->
       <div class="text-center lg:text-left max-w-md">
@@ -46,39 +68,37 @@
     </div>
   </section>
 
-  <section class="container mx-auto px-6 py-12 lg:px-20">
-    <h2 class="text-center text-2xl sm:text-3xl font-bold mb-6 text-white">Successful Collaborations.</h2>
-    
-    <div class="flex justify-between items-center">
-      <!-- <button class="text-white text-2xl">&#60;</button> -->
-      
-      <div class="flex space-x-8 overflow-hidden">
-        <div class="flex flex-col items-center">
-          <img src="./logol.png" alt="Let's park logo" class="w-30 h-20 mb-2">
-          
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./dream.png" alt="Let's park logo" class="w-30 h-20 mb-2">
-          
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./logo3.png" alt="Let's park logo" class="w-30 h-20 mb-2">
-          
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./logo4.png" alt="Let's park logo" class="w-30 h-20 mb-2">
-          
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./logo5.png" alt="Let's park logo" class="w-30 h-20 mb-2">
-          
-        </div>
+  <section class="py-16  text-white">
+    <h2 class="text-4xl text-center font-bold mb-8">Our Successful Collaborations</h2>
+    <div class="flex flex-wrap justify-center gap-12">
+      <!-- Company 1 Logo -->
+      <div class="w-32 sm:w-40 lg:w-48  p-6 rounded-lg text-center shadow-lg">
+        <img src="./logo1.png" alt="Company 1" class="mx-auto mb-4 max-w-full h-auto">
       </div>
-      
-      <!-- <button class="text-white text-2xl">&#62;</button> -->
+  
+      <!-- Company 2 Logo -->
+      <div class="w-32 sm:w-40 lg:w-48  p-6 rounded-lg text-center shadow-lg">
+        <img src="./logo2.png" alt="Company 2" class="mx-auto mb-4 max-w-full h-auto">
+      </div>
+  
+      <!-- Company 3 Logo -->
+      <div class="w-32 sm:w-40 lg:w-48  p-6 rounded-lg text-center shadow-lg">
+        <img src="./logo3.png" alt="Company 3" class="mx-auto mb-4 max-w-full h-auto">
+      </div>
+  
+      <!-- Company 4 Logo -->
+      <div class="w-32 sm:w-40 lg:w-48  p-6 rounded-lg text-center shadow-lg">
+        <img src="./logo4.png" alt="Company 4" class="mx-auto mb-4 max-w-full h-auto">
+      </div>
+  
+      <!-- Company 5 Logo -->
+      <div class="w-32 sm:w-40 lg:w-48  p-6 rounded-lg text-center shadow-lg">
+        <img src="./logo5.png" alt="Company 5" class="mx-auto mb-4 max-w-full h-auto">
+      </div>
     </div>
   </section>
 
+  <!-- Challo Section -->
   <section class="bg-black py-16 flex justify-between">
     <h2 class="text-4xl mb-5 pl-9">Challo</h2>
     <div class="max-w-3xl text-white text-left">
@@ -89,77 +109,145 @@
             Read more <span class="text-xl">&rarr;</span>
         </a>
     </div>
-</section>
+  </section>
   
-  <div class="bg-black text-white py-16">
-    <div class="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
-      <!-- Left Section -->
-      <div>
-        <h2 class="text-3xl font-bold mb-4">
-          Our Approach<span class="text-teal-500">.</span>
-        </h2>
-        <p class="text-base leading-relaxed">
-          We built our solutions by closely listening to our potential clientele and understanding their expectations. We know how to analyze this information and customize our offering to changing market needs. Know Our Step by Step Approach.
-        </p>
-      </div>
-      <!-- Right Section -->
-      <div class="grid grid-cols-3 gap-4 lg:gap-6">
-        <!-- Step: Ideate -->
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-teal-500 rounded-lg flex flex-col items-center justify-center p-4">
-          <svg class="w-10 h-10 mb-2 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          <p class="text-gray-300 text-sm">Ideate</p>
-        </div>
-        <!-- Step: Research -->
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-teal-500 rounded-lg flex flex-col items-center justify-center p-4">
-          <svg class="w-10 h-10 mb-2 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16l4-4 4 4m-4-4v12" />
-          </svg>
-          <p class="text-gray-300 text-sm">Research</p>
-        </div>
-        <!-- Step: Design -->
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-teal-500 rounded-lg flex flex-col items-center justify-center p-4">
-          <svg class="w-10 h-10 mb-2 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v10l9 5-9 5-9-5 9-5z" />
-          </svg>
-          <p class="text-gray-300 text-sm">Design</p>
-        </div>
-        <!-- Step: Go Live -->
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-teal-500 rounded-lg flex flex-col items-center justify-center p-4">
-          <svg class="w-10 h-10 mb-2 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3l14 9-14 9V3z" />
-          </svg>
-          <p class="text-gray-300 text-sm">Go Live!</p>
-        </div>
-        <!-- Step: Test -->
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-teal-500 rounded-lg flex flex-col items-center justify-center p-4">
-          <svg class="w-10 h-10 mb-2 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 11h10M7 15h10" />
-          </svg>
-          <p class="text-gray-300 text-sm">Test</p>
-        </div>
-        <!-- Step: Develop -->
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-teal-500 rounded-lg flex flex-col items-center justify-center p-4">
-          <svg class="w-10 h-10 mb-2 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2-2 4 4 4-4M4 20h16v-2H4z" />
-          </svg>
-          <p class="text-gray-300 text-sm">Develop</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-black text-white py-16">
-    <div class="container mx-auto px-4 lg:px-8 text-center">
+<!-- Our Approach Section -->
+<div class="bg-black text-white py-16">
+  <div class="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+    <!-- Left Section -->
+    <div>
       <h2 class="text-3xl font-bold mb-4">
-        Our Services<span class="text-teal-500">.</span>
+        Our Approach<span class="text-teal-500">.</span>
       </h2>
-      <p class="text-base leading-relaxed max-w-3xl mx-auto">
-        We work small, but we think big. We wrestle with business challenges, discover new opportunities, and provide innovative solutions that will help you define and refine your product ideas, design them, develop web and mobile-app. Ensuring its Scalable, Reliable, Easy Usable, and Secure.
+      <p class="text-base leading-relaxed">
+        We built our solutions by closely listening to our potential clientele and understanding their expectations. We know how to analyze this information and customize our offering to changing market needs. Know Our Step by Step Approach.
       </p>
     </div>
+
+    <!-- Right Section -->
+    <div class="relative">
+      <!-- Workflow Grid -->
+      <div class="grid grid-cols-3 ">
+        <!-- Ideate -->
+        <div class="relative border-1 gradient-border  py-16 rounded-lg" style="width: 190px;height: 190px;">
+          <div class="flex items-center justify-center">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <h3 class="text-lg font-semibold">Ideate</h3>
+            </div>
+          </div>
+          <!-- Right arrow -->
+          <div class="absolute -right-8 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+  
+        <!-- Research -->
+        <div class="relative border-1 gradient-border  py-16 rounded-lg" style="width: 190px;height: 190px;">
+          <div class="flex items-center justify-center">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 12h2m-6 4h.01m-2-4h.01M3 10h.01M4 6h16M4 6a2 2 0 012-2h8a2 2 0 012 2m-2 0h6a2 2 0 012 2m0 0h-6a2 2 0 01-2-2m0 0h-6a2 2 0 01-2 2m0 0H2a2 2 0 00-2 2m2 0h2m6 0h2" />
+              </svg>
+              <h3 class="text-lg font-semibold">Research</h3>
+            </div>
+          </div>
+          <!-- Right arrow -->
+          <div class="absolute -right-8 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+  
+        <!-- Design -->
+        <div class="relative border-1 gradient-border  py-16 rounded-lg" style="width: 190px;height: 190px;">
+          <div class="flex items-center justify-center" >
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              <h3 class="text-lg font-semibold">Design</h3>
+            </div>
+          </div>
+          <!-- Down arrow -->
+          <div class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Bottom row -->
+      <div class="grid grid-cols-3  mt-10">
+        <!-- Develop -->
+        <div class="relative border-1 gradient-border  py-16 rounded-lg" style="width: 190px;height: 190px;">
+          <div class="flex items-center justify-center">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 2L15 21M9 12h6" />
+              </svg>
+              <h3 class="text-lg font-semibold">Develop</h3>
+            </div>
+          </div>
+          <!-- Left arrow -->
+          <div class="absolute -right-8 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+  
+        <!-- Test -->
+        <div class="relative border-1 gradient-border  py-16 rounded-lg" style="width: 190px;height: 190px;">
+          <div class="flex items-center justify-center">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.293 3.293a1 1 0 011.414 0L15 6.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0L11 6.586l-2.293 2.293a1 1 0 01-1.414-1.414l2-2z" />
+              </svg>
+              <h3 class="text-lg font-semibold">Test</h3>
+            </div>
+          </div>
+          <!-- Left arrow -->
+          <div class="absolute -right-8 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+  
+        <!-- Go Live -->
+        <div class="border-1 gradient-border  py-16 rounded-lg" style="width: 190px;height: 190px;">
+          <div class="flex items-center justify-center">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2a2 2 0 012-2h11a2 2 0 012 2h2m-6 4h6M2 14h6m-6 0v6m14-6v6" />
+              </svg>
+              <h3 class="text-lg font-semibold">Go Live</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
+</div>
+
+
+ <!-- Our Services Section -->
+ <section class="py-12  text-white">
+  <h2 class="text-4xl text-center font-bold mb-8">Our Services</h2>
+ <div class="flex justify-center ">
+  <p class="text-sm text-base text-center max-w-3xl">
+    We work small, but we think big. We wrestle with business challenges, discover new opportunities, and provide innovative solutions that will help you define and refine your product ideas, design them, develop web and mobile-app. Ensuring its Scalable, Reliable, Easy Usable and Secure.  </p>
+ </div>
+</section>
+
   
   <div class="bg-black text-white py-10">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -384,8 +472,9 @@
 
   <section class="px-8 py-16">
     <h1 class="text-4xl font-bold">Our Success Stories.</h1>
-    <div class="flex mt-8 bg-gray-800 rounded-lg shadow-md overflow-hidden text-center">
-      <!-- Content Section -->
+    <div class="flex mt-8 border border-gray-500  rounded-lg shadow-md overflow-hidden text-center">
+
+    <!-- Content Section -->
       <div class="w-1/2 mx-auto p-8">
         <p class="text-lg italic text-gray-300">
           “Working with Tudo has been not only tremendously productive but also cost effective. Their work is world class in terms of design, UI/UX and development. Arjun and his team have constantly delivered results with flexibility and ease. They truly listened to us and caught the pulse of what we wanted. It has been a real pleasure to work with them.”
